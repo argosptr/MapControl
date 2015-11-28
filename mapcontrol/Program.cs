@@ -57,7 +57,7 @@ namespace Antiward
                             if (sent.AbilityState == AbilityState.OnCooldown)
                             {
                                 Game.ExecuteCommand("say_team " + dia.Name.Replace("npc_dota_hero_", "") + " barusan masang sentry");
-                                dia.AddParticleEffect(@"particles\ui_mouseactions\range_display.vpcf").SetControlPoint(1, new Vector3(100, 0, 0));
+                                sent.AddParticleEffect(@"particles\ui_mouseactions\range_display.vpcf").SetControlPoint(1, new Vector3(100, 0, 0));
                             }
                         }
                     }
@@ -65,7 +65,7 @@ namespace Antiward
                     {
                         foreach (var obse in obsentry)
                         {
-                            if (obse.CurrentCharges == 2 )
+                            if (obse.AbilityState==AbilityState.ItemOnCooldown)
                             {
                                 Game.ExecuteCommand("say_team " + dia.Name.Replace("npc_dota_hero_", "") + " barusan masang obs/sentry");
                                 dia.AddParticleEffect(@"particles\ui_mouseactions\range_display.vpcf").SetControlPoint(1, new Vector3(128, 0, 0));
