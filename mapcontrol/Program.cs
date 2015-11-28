@@ -65,7 +65,7 @@ namespace Antiward
                     {
                         foreach (var obse in obsentry)
                         {
-                            if (obse.AbilityState == AbilityState.OnCooldown)
+                            if (obse.CurrentCharges == 1 )
                             {
                                 Game.ExecuteCommand("say_team " + dia.Name.Replace("npc_dota_hero_", "") + " barusan masang obs/sentry");
                                 dia.AddParticleEffect(@"particles\ui_mouseactions\range_display.vpcf").SetControlPoint(1, new Vector3(128, 0, 0));
