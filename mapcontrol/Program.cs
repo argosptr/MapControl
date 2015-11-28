@@ -29,7 +29,7 @@ namespace Antiward
 
         private static void Game_OnFireEvent(FireEventEventArgs args)
         {
-            var mereka = ObjectMgr.GetEntities<Hero>().Where(x => x.Team == ObjectMgr.LocalHero.Team && x.IsAlive).ToList();
+            var mereka = ObjectMgr.GetEntities<Hero>().Where(x => x.Team != ObjectMgr.LocalHero.Team && x.IsAlive).ToList();
             if(args.GameEvent.Name=="dota_inventory_changed")
             {
                 foreach (var dia in mereka)
