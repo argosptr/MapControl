@@ -37,7 +37,6 @@ namespace Antiward
                     var obs = dia.Inventory.Items.Where(x => x.Name == "item_ward_observer").ToList();
                     var sentry = dia.Inventory.Items.Where(x => x.Name == "item_ward_sentry").ToList();
   
-
                     if (obs.Any())
                     {
                         foreach (var ob in obs)
