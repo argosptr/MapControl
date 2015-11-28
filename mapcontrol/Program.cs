@@ -56,8 +56,10 @@ namespace Antiward
                         {
                             if (sent.AbilityState == AbilityState.OnCooldown)
                             {
+          
                                 Game.ExecuteCommand("say_team " + dia.Name.Replace("npc_dota_hero_", "") + " barusan masang sentry");
-                                Drawing.DrawText("X", sent.Owner.Position, Color.Red,);
+                                Drawing.DrawText("X", new Vector2(dia.Position.X, dia.Position.Y),Color.Red,FontFlags.None);
+
                             }
                         }
                     }
