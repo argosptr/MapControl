@@ -36,6 +36,7 @@ namespace Antiward
                 {   
                     var obs = dia.Inventory.Items.Where(x => x.Name == "item_ward_observer").ToList();
                     var sentry = dia.Inventory.Items.Where(x => x.Name == "item_ward_sentry").ToList();
+                    var obsentry = dia.Inventory.Items.Where(x => x.Name == "item_ward_dispenser").ToList();
   
                     if (obs.Any())
                     {
@@ -60,9 +61,21 @@ namespace Antiward
                             }
                         }
                     }
+                    if (obsentry.Any())
+                    {
+                        foreach (var obse in obsentry)
+                        {
+                            if (obse.AbilityState == AbilityState.OnCooldown)
+                            {
+                                Game.ExecuteCommand("say_team " + dia.Name.Replace("npc_dota_hero_", "") + " barusan masang obs/sentry");
+                                dia.AddParticleEffect(@"particles\ui_mouseactions\range_display.vpcf").SetControlPoint(1, new Vector3(128, 0, 0));
+                                Drawing.WorldToScreen(dia.Position);
+                            }
+                        }
+                    }
 
                 }
             }
         }
     }
-}
+} 
